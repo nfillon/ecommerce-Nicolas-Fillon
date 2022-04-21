@@ -1,7 +1,9 @@
 import React from "react";
 import { Navbar, Nav, Container, NavDropdown} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import falogo from "../assets/logofa.png";
+import falogo from "../../assets/logofa.png";
+import CartWidget from "../CardWidget/CartWidget";
+
 
 export default function Navegacion() {
   return (
@@ -14,10 +16,11 @@ export default function Navegacion() {
             <Nav.Link href="#info">Informacion</Nav.Link>
             <NavDropdown title="Restaurante" id="navbarScrollingDropdown" >
               <NavDropdown.Item href="#roomservices">Room Services</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Resto Mexicano</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Resto Italiano</NavDropdown.Item>
+              <NavDropdown.Item href="#action3">Resto Mexicano</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Resto Italiano</NavDropdown.Item> 
             </NavDropdown>
             <Nav.Link href="#Menu">menu</Nav.Link>
+            <Nav.Link href=""><CartWidget/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

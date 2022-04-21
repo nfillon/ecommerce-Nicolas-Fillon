@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  background-image: url(./assets/fa.png);
+  background-image: url(../assets/fa.png);
   background-position: center center;
   height: 100vh; 
   background-size: cover;

@@ -1,13 +1,12 @@
-import './App.css';
-import Navegacion from './components/Navegacion';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Navegacion from './components/Navbar/Navegacion';
 
 
 function App() {
   return (
     <div className="App">
       <Navegacion/>
-      <header className="App-logo">
-      </header>
+      <ItemListContainer/>
     </div>
   );
 }
