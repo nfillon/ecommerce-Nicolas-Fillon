@@ -1,19 +1,26 @@
 import React from "react";
 import { Card, Button} from "react-bootstrap";
+import ItemCount from "../itemCount/itemCount";
 
 
-function ItemListContainer() {
+function ItemListContainer(
+    {
+        images,
+        title,
+        description,
+        active,
+    }
+) {
   return (
     <div className="pt-5 px-5 mx-auto">
       <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        {images ? <Card.Img variant="top" src={images} /> :null}
         <Card.Body>
-          <Card.Title>Card Title</Card.Title>
+          <Card.Title>{title}</Card.Title>
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+           {description}
           </Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          {active ? <ItemCount/> : null}
         </Card.Body>
       </Card>
     </div>
