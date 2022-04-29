@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, Button} from "react-bootstrap";
+import { Card} from "react-bootstrap";
+import CartWidget from "../CardWidget/CartWidget";
 import ItemCount from "../itemCount/itemCount";
 
 
@@ -11,6 +12,9 @@ function ItemListContainer(
         active,
     }
 ) {
+  const addCarrito = (count) => { 
+    <CartWidget cantidad={count} />
+  }
   return (
     <div className="pt-5 px-5 mx-auto">
       <Card style={{ width: "18rem" }}>
@@ -18,9 +22,9 @@ function ItemListContainer(
         <Card.Body>
           <Card.Title>{title}</Card.Title>
           <Card.Text>
-           {description}
+          {description}
           </Card.Text>
-          {active ? <ItemCount/> : null}
+          {active ? <ItemCount minimo={3} disponibilidad={5} addCarrito={addCarrito} /> : null}
         </Card.Body>
       </Card>
     </div>

@@ -1,4 +1,3 @@
-import ItemCount from './components/itemCount/itemCount';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Navegacion from './components/Navbar/Navegacion';
 
