@@ -5,7 +5,7 @@ import falogo from "../../assets/logofa.png";
 import CartWidget from "../CardWidget/CartWidget";
 
 
-export default function Navegacion() {
+export default function Navegacion({count}) {
   return (
     <div>
       <Navbar expand={'md'} bg="dark" variant="dark">
@@ -20,7 +20,7 @@ export default function Navegacion() {
               <NavDropdown.Item href="#action4">Resto Italiano</NavDropdown.Item> 
             </NavDropdown>
             <Nav.Link href="#Menu">menu</Nav.Link>
-            <Nav.Link href=""><CartWidget/></Nav.Link>
+            <Nav.Link href=""><CartWidget count={count}/></Nav.Link>
           </Nav>
         </Container>
       </Navbar>

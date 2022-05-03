@@ -1,34 +1,52 @@
-import React from "react";
-import { Card} from "react-bootstrap";
-import CartWidget from "../CardWidget/CartWidget";
-import ItemCount from "../itemCount/itemCount";
+import React, { useEffect, useState } from "react";
+import { ItemList } from "../ItemList/ItemList";
 
+const ItemListContainer = () => {
+    const [productos, setProductos] = useState([]);
 
-function ItemListContainer(
-    {
-        images,
-        title,
-        description,
-        active,
-    }
-) {
-  const addCarrito = (count) => { 
-    <CartWidget cantidad={count} />
-  }
-  return (
-    <div className="pt-5 px-5 mx-auto">
-      <Card style={{ width: "18rem" }}>
-        {images ? <Card.Img variant="top" src={images} /> :null}
-        <Card.Body>
-          <Card.Title>{title}</Card.Title>
-          <Card.Text>
-          {description}
-          </Card.Text>
-          {active ? <ItemCount minimo={3} disponibilidad={5} addCarrito={addCarrito} /> : null}
-        </Card.Body>
-      </Card>
-    </div>
-  );
+        const data = [
+            {
+            language_code: "es",
+            product_id: 123532,
+            name: "Plato de frutas de la estación",
+            short_description:
+            "Mezcla de diferentes frutas que cambian dependiendo la estación del año",
+            presentation:"400g",
+            botton: "botton",
+            },
+            {
+            language_code: "es",
+            product_id: 123534,
+            name: "Cereal",
+            short_description: 
+                "Mezcla de hojuelas de cereal y plátano",
+            presentation:"50g",
+            botton: "botton",
+            }
+        ];
+
+        useEffect(() => {
+            const promesaProductos = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(data)
+            }, 2000)
+            })
+        promesaProductos.then((res) => {
+            setProductos(res)
+        }).catch((err) =>
+        console.log(err)
+        ).then(() => 
+        console.log(data)
+        )
+        return () => {
+
+        }
+        }, [])
+
+        return (
+            <div>
+                {<ItemList listProdutos={productos}/>}
+            </div>
+        )
 }
-
 export default ItemListContainer;

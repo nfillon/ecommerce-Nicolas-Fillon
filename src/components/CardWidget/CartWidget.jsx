@@ -3,10 +3,11 @@ import React from 'react'
 import { BsFillCartCheckFill } from "react-icons/bs";
 
 
-const CartWidget = ({count}) => {
+export const CartWidget = () => {
+  
   return (
-     <span><BsFillCartCheckFill size={30}/> {count} </span>
+     <span><BsFillCartCheckFill size={30}/>  </span>
   )
 }
 
-export default CartWidget
+export default CartWidget;

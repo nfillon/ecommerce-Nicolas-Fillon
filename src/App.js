@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <Navegacion/>
-      <ItemListContainer title={"VENDO ALGO"} description={"ALGUNA COSA NOSE"} active/>
+      <ItemListContainer />
     </div>
   );
 }
