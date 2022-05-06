@@ -1,12 +1,13 @@
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+
 import Navegacion from './components/Navbar/Navegacion';
+import { Rutas } from './routes/Rutas';
 
 
 function App() {
   return (
     <div className="App">
       <Navegacion/>
-      <ItemListContainer />
+      <Rutas/>
     </div>
   );
 }

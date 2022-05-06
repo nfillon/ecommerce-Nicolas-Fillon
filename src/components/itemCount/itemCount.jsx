@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {ButtonGroup, Button} from "react-bootstrap";
 
-
-
-
 export const ItemCount = ({minimo, disponibilidad, addCarrito}) => { 
 
 
@@ -25,13 +22,11 @@ export const ItemCount = ({minimo, disponibilidad, addCarrito}) => {
     return (
         <div className="mx-2, pt-3">
             <ButtonGroup className="mx-2" aria-label="Basic example">
-                <Button disabled={count <= 1} variant="secondary" onClick={restar}>-</Button>
-                <span style={{width: 125, textAlign: 'center'}}>{count}</span>
-                <Button  disabled={count >= disponibilidad} variant="secondary" onClick={suma}>+</Button>
+                <Button disabled={count <= 1} variant="success" onClick={restar}>-</Button>
+                <span style={{width: 50, textAlign: "center", fontSize:25}}>{count}</span>
+                <Button disabled={count >= disponibilidad} variant="success" onClick={suma}>+</Button>
+                <Button className="mx-4" disabled ={disponibilidad <= 0} variant="success" onClick={() => addCarrito(count)}>AGREGAR AL CARRITO</Button>
             </ButtonGroup>
-            <div className="p-2 center-textAlign">
-                <Button disabled ={disponibilidad <= 0} variant="secondary" onClick={() => addCarrito(count)}>AGREGAR AL CARRITO</Button>
-            </div>
         </div>
     )
 

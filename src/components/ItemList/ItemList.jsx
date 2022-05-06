@@ -8,9 +8,11 @@ export const ItemList = ({listProdutos}) => {
         {
           listProdutos.length > 0 ? listProdutos.map(producto => (
             <Item
+              // key={producto.product_id}
+              id={producto.product_id}
               title={producto.name}
+              image={producto.image}
               description={producto.short_description}
-              presentation={producto.presentation}
               botton={producto.botton}
             />
           )) : <h4>Cargando...</h4>
