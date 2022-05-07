@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from "react";
-import {data} from "../Data/Data.js"
+import { useParams } from "react-router-dom";
+import {data} from "../Data/Data.js";
 import ItemDetail from "../ItemDetail/ItemDetail.jsx";
 
 
 
-const ItemDetailContainer = ({ItemId}) => {
-    const [product, setProduct] = useState(null);
-    const {ItemId} = useParams()
-
-    const producto = data.find(item => item.id === Number(ItemId))
-
-    const getItem = () => { 
-        const getItemPromise =  new Promise((resolve, reject) => {
-
-            resolve(producto)
-        })
-        getItemPromise.then(res => setProduct(res))
-    }
-    console.log(producto)
+const ItemDetailContainer = () => {
     
+    const {id} = useParams();
+    const [productos, setProductos] = useState(null);
+
+    const producFilter = data.find(item => item.product_id === Number(id))
     
     useEffect(() => {
-      getItem()
+            const getItemPromise =  new Promise((resolve, reject) => {
+                setTimeout(() => {
+                resolve(producFilter) 
+            }, 2000);
+        })
+            getItemPromise.then((res) => { 
+                setProductos(res)
+            }).catch((err) => 
+            console.log(err)
+            ).then(() => 
+            console.log(producFilter)
+            ) 
+        }, [])
     
-      return () => {
-       
-      }
-    }, )
-    
-
         return (
         <>
-           {product ? <ItemDetail product={product}/> : <h1>Cargando...</h1>}
+           {productos ? <ItemDetail productos={productos}/> : <h1>Cargando...</h1>}
         </>
       
         )

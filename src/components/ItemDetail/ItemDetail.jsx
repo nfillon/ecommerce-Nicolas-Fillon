@@ -1,23 +1,33 @@
 import React from "react";
-import {Card} from "react-bootstrap";
-
+import {Card, Button} from "react-bootstrap";
+import ReactDOM from "react-dom";
+import ItemCount from "../ItemCount/ItemCount";
 
 
 function ItemDetail(
     {
-      description
+      productos
     }
 ) {
-
-  
-
-
+  const addCarrito = (count) => { 
+    console.log(count);
+  }
   return (
-    <div className="pt-5 px-5 mx-auto">
-          <Card.Text>
-          {description}
-          </Card.Text>
-    </div>
+<Card className="text-center">
+  
+  <Card.Body  style={{ width: "40rem" }}>
+  <Card.Img variant="top" src={productos.image} /> 
+    <Card.Title>{productos.name}</Card.Title>
+    <Card.Text>
+      With supporting text below as a natural lead-in to additional content.
+    </Card.Text>
+    {productos.botton ? <ItemCount minimo={1} disponibilidad={10} addCarrito={addCarrito} /> : null}
+
+    <Button variant="primary">Go somewhere</Button>
+    
+  </Card.Body>
+  <Card.Footer className="text-muted">2 days ago</Card.Footer>
+</Card>
   );
 }
 
