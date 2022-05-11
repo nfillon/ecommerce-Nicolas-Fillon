@@ -8,6 +8,7 @@ export const data = [
         price: "$ 100",
         presentation: "300 grs",
         botton: "botton",
+        stock:"20"
     },{
         product_id: 19633, 
         name: "Grand Nachos", 
@@ -17,5 +18,6 @@ export const data = [
         price: "$ 150",
         presentation: "80 grs.",
         botton: "botton",
+        stock:"5"
     }
 ];

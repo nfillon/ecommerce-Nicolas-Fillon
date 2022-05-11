@@ -22,7 +22,7 @@ function ItemDetail(
     <Card.Title>{productos.name}</Card.Title>
     <Card.Subtitle>{productos.long_description}</Card.Subtitle>
     <Card.Text  >{productos.price}</Card.Text>
-    {productos.botton ? <ItemCount minimo={1} disponibilidad={10} addCarrito={addCarrito} /> : null}
+    {productos.botton ? <ItemCount minimo={1} disponibilidad={productos.stock} addCarrito={addCarrito} /> : null}
   </Card.Body>
   <Card.Footer className="text-muted">2 days ago</Card.Footer>
 </Card>
