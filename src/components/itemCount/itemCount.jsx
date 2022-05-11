@@ -3,6 +3,8 @@ import {ButtonGroup, Button} from "react-bootstrap";
 
 export const ItemCount = ({minimo, disponibilidad, addCarrito}) => { 
 
+    console.log(addCarrito)
+
 
     const [count, setCount] = useState((parseInt(minimo)));
 

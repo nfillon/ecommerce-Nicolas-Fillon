@@ -3,6 +3,8 @@ import { Navbar, Nav, Container, NavDropdown} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import falogo from "../../assets/logofa.png";
 import CartWidget from "../CardWidget/CartWidget";
+import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 
 export default function Navegacion({count}) {
@@ -10,9 +12,11 @@ export default function Navegacion({count}) {
     <div>
       <Navbar expand={'md'} bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home"><img src={falogo} alt="logo"/></Navbar.Brand>
+          <Navbar.Brand ><img src={falogo} alt="logo"/></Navbar.Brand>
           <Nav >
-            <Nav.Link href="#home">Home</Nav.Link>
+            <NavLink to="/"> 
+              home
+              </NavLink>
             <Nav.Link href="#info">Informacion</Nav.Link>
             <NavDropdown title="Restaurante" id="navbarScrollingDropdown" >
               <NavDropdown.Item href="#roomservices">Room Services</NavDropdown.Item>

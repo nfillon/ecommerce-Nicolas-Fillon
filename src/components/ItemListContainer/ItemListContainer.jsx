@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
 import {data} from "../Data/Data"
 import { ItemList } from "../ItemList/ItemList";
 
@@ -28,11 +27,11 @@ const ItemListContainer = () => {
 
         return (
             // <div className="container">
-                <Row xs={1} md={4} className="g-4">
-                    <Col>
+            <div className="d-flex bd-highlight example-parent">
+               
                         {<ItemList listProdutos={productos}/>}
-                    </Col>
-                </Row>
+                    
+                </div>
             // </div>
         )
 }
