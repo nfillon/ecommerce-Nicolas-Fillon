@@ -10,23 +10,30 @@ function ItemDetail(
     }
 ) {
 
-  const addCarrito = (count) => { 
-    console.log(count);
+  const onAdd = (count) => { 
+
+   
+
+    console.log(`Agregamos Cantidad ${count}`);
+
+    
+
   }
   
   return (
 <Card className="text-center">
-  
   <Card.Body  style={{ width: "40rem" }}>
   <Card.Img variant="top" src={productos.image} /> 
     <Card.Title>{productos.name}</Card.Title>
     <Card.Subtitle>{productos.long_description}</Card.Subtitle>
     <Card.Text  >{productos.price}</Card.Text>
-    {productos.botton ? <ItemCount minimo={1} disponibilidad={productos.stock} addCarrito={addCarrito} /> : null}
+    {productos.botton ? <ItemCount minimo={1} disponibilidad={productos.stock} onAdd={onAdd} /> : null}
   </Card.Body>
-  <Card.Footer className="text-muted">2 days ago</Card.Footer>
+  {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
 </Card>
   );
+
+  
 }
 
 export default ItemDetail;

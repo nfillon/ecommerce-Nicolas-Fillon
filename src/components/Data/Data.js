@@ -8,7 +8,8 @@ export const data = [
         price: "$ 100",
         presentation: "300 grs",
         botton: "botton",
-        stock:"20"
+        stock:"20",
+        salsa:"Branc"
     },{
         product_id: 19633, 
         name: "Grand Nachos", 

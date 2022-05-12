@@ -1,5 +1,4 @@
 
-import Navegacion from './components/Navbar/Navegacion';
 import { Rutas } from './routes/Rutas';
 
 function App() {
