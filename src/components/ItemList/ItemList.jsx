@@ -1,20 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../context/GlobalStateContext";
 import Item from "../Item/Item";
 
 
-export const ItemList = ({listProdutos}) => {
+export const ItemList = () => {
+
+  const {products} = useContext(CartContext)
+
   return (
     <>
         {
-          listProdutos.length > 0 ? listProdutos.map(producto => (
+          products.length > 0 ? products.map((productos, key) => (
             <Item
-              key={producto.product_id}
-              id={producto.product_id}
-              title={producto.name}
-              image={producto.image}
-              description={producto.short_description}
-              price={producto.price}
-              botton={producto.botton}
+              key={productos.id}
+              id={productos.id}
+              title={productos.name}
+              image={productos.image}
+              description={productos.short_description}
+              price={productos.price}
+              botton={productos.botton}
             />
           )) : <h4>Cargando...</h4>
           }

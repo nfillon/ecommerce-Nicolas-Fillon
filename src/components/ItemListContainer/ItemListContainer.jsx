@@ -3,12 +3,8 @@ import {data} from "../Data/Data"
 import { ItemList } from "../ItemList/ItemList";
 
 
-
-
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([]);
-
-
 
         useEffect(() => {
             const promesaProductos = new Promise((resolve, reject) => {

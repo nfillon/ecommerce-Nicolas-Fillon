@@ -3,20 +3,24 @@ import {
   Routes, 
   Route
 } from 'react-router-dom';import React from 'react'
-import ItemListContainer from "../components/ItemListContainer/ItemListContainer"
-import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer"
+
 import Leyaout from './Leyaout';
+import ItemList from '../components/ItemList/ItemList';
+import ItemDetail from '../components/ItemDetail/ItemDetail';
+
+
 
 
 
 export const Rutas = () => {
+  
   return (
     <>
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Leyaout />}>
-            <Route index element={<ItemListContainer/>}/> 
-            <Route path="/detail/:id" element={<ItemDetailContainer/>}/>
+            <Route index element={<ItemList/>}/> 
+            <Route path="/detail/:id" element={<ItemDetail/>}/>
           </Route>
         </Routes>
     </BrowserRouter>

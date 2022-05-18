@@ -10,7 +10,7 @@ const ItemDetailContainer = () => {
     const {id} = useParams();
     const [productos, setProductos] = useState(null);
 
-    const producFilter = data.find(item => item.product_id === Number(id))
+    const producFilter = data.find(item => item.id === Number(id))
     
     useEffect(() => {
             const getItemPromise =  new Promise((resolve, reject) => {

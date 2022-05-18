@@ -1,39 +1,48 @@
-import React from "react";
-import {Card} from "react-bootstrap";
-// import ReactDOM from "react-dom";
-import ItemCount from "../ItemCount/ItemCount";
+import React, { useContext, useMemo } from "react";
+import { CartContext } from "../../context/GlobalStateContext";
+
+import {Button, Card} from "react-bootstrap";
+
+// // import ReactDOM from "react-dom";
+// import ItemCount from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
 
 
-function ItemDetail(
-    {
-      productos
-    }
-) {
+function ItemDetail({item}) {
+  const { id } = useParams();
+  const {products} = useContext(CartContext)
 
-  const onAdd = (count) => { 
-
-   
-
-    console.log(`Agregamos Cantidad ${count}`);
-
-    
-
-  }
   
-  return (
-<Card className="text-center">
-  <Card.Body  style={{ width: "40rem" }}>
-  <Card.Img variant="top" src={productos.image} /> 
-    <Card.Title>{productos.name}</Card.Title>
-    <Card.Subtitle>{productos.long_description}</Card.Subtitle>
-    <Card.Text  >{productos.price}</Card.Text>
-    {productos.botton ? <ItemCount minimo={1} disponibilidad={productos.stock} onAdd={onAdd} /> : null}
-  </Card.Body>
-  {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
-</Card>
+    const [filteredDetails] = useMemo(() => 
+    products ? products.filter(detail => detail.id === Number(id)) : [null]
+    , [products, id]);
+
+    const {deleteItemToCart, addItemToCart} = useContext(CartContext);
+    // const {idItem} = item;
+
+  return ( filteredDetails ?
+
+    <Card className="text-center">
+          <Card.Body  style={{ width: "40rem" }}>
+          <Card.Img variant="top" src={filteredDetails.image} /> 
+            <Card.Title>{filteredDetails.name}</Card.Title>
+            <Card.Subtitle>{filteredDetails.long_description}</Card.Subtitle>
+            <Card.Text  >{filteredDetails.price}</Card.Text>
+            <Button oneClick={() => addItemToCart(item)}>AGREGAR</Button>
+            <Button OnClick={() => deleteItemToCart(item)}>QUITAR</Button>
+            {/* {filteredDetails.botton ? <ItemCount minimo={1} disponibilidad={filteredDetails.stock} productoId={filteredDetails} /> : null} */}
+          </Card.Body>
+          {/* <Card.Footer className="text-muted">2 days ago</Card.Footer> */}
+      </Card>
+     : <h1>Cargando ..... </h1>
   );
-
-  
 }
 
-export default ItemDetail;
+
+
+
+
+
+export default ItemDetail
+
+
