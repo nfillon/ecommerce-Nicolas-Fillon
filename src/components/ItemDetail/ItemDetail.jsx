@@ -8,17 +8,16 @@ import { useParams } from "react-router-dom";
 
 function ItemDetail() {
   const { id } = useParams();
-  const {products,productsLength} = useContext(CartContext)
+  const {products, productsLength} = useContext(CartContext)
+  const {deleteItemToCart, addItemToCart} = useContext(CartContext);
 
   //Filtro la promesa del context
     const [filteredDetails] = useMemo(() => 
     products ? products.filter(detail => detail.id === Number(id)) : [null]
     , [products, id]);
 
-    console.log(filteredDetails)
-    
 
-    const {deleteItemToCart, addItemToCart} = useContext(CartContext);
+
   
 
   return ( filteredDetails ?

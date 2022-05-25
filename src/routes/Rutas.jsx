@@ -7,6 +7,7 @@ import {
 import Leyaout from './Leyaout';
 import ItemList from '../components/ItemList/ItemList';
 import ItemDetail from '../components/ItemDetail/ItemDetail';
+import ItemCart from '../components/ItemCart/ItemCart';
 
 
 
@@ -21,6 +22,7 @@ export const Rutas = () => {
           <Route path="/" element={<Leyaout />}>
             <Route index element={<ItemList/>}/> 
             <Route path="/detail/:id" element={<ItemDetail/>}/>
+            <Route path="/cart" element={<ItemCart/>}/>
           </Route>
         </Routes>
     </BrowserRouter>

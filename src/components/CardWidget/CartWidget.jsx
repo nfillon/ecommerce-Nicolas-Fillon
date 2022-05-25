@@ -11,12 +11,6 @@ export const CartWidget = () => {
   
   const { cartItems, deleteItemToCart, productsLength} = useContext(CartContext);
 
-  // useEffect(() => {
-  //   setProductsLength(
-  //     cartItems.reduce((previous, current) => previous + current.amount, 0)
-  //   );
-  // }, [cartItems]);
-
   const total = cartItems.reduce(
     (previous, current) => previous + current.amount * current.price,
     0
