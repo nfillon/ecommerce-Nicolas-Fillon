@@ -21,11 +21,9 @@ export const CartWidget = () => {
     (previous, current) => previous + current.amount * current.price,
     0
   );
-
   console.log(total);
-
   return (
-    <Dropdown alignRight>
+    <Dropdown align="end"> 
       <Dropdown.Toggle variant="success">
         <FaShoppingCart color="white" fontSize="25px" />
         <Badge>{productsLength}</Badge>
