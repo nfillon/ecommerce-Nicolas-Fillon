@@ -21,7 +21,7 @@ export default function Navegacion({count}) {
               <NavDropdown.Item href="#action4">Resto Italiano</NavDropdown.Item> 
             </NavDropdown>
             <Nav.Link href="#Menu">menu</Nav.Link>
-            <Nav.Link href=""><CartWidget count={count}/></Nav.Link>
+            <Nav ><CartWidget /></Nav>
           </Nav>
         </Container>
       </Navbar>

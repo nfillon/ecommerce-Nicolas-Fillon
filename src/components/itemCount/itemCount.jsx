@@ -2,8 +2,10 @@ import React, {useContext, useEffect, useState} from "react";
 import {ButtonGroup, Button} from "react-bootstrap";
 import { CartContext } from "../../context/GlobalStateContext";
 
-export const ItemCount = ({minimo, disponibilidad,productos}) => { 
-    console.log(productos)
+export const ItemCount = ({minimo, disponibilidad}) => { 
+    // const { id } = useParams();
+    const {products} = useContext(CartContext)
+    console.log(products)
 
     const {addItemToCart} = useContext(CartContext)
 
@@ -28,7 +30,7 @@ export const ItemCount = ({minimo, disponibilidad,productos}) => {
                 <Button disabled={count <= 1} variant="success" onClick={restar}>-</Button>
                 <span style={{width: 50, textAlign: "center", fontSize:25}}>{count}</span>
                 <Button disabled={count >= disponibilidad} variant="success" onClick={suma}>+</Button>
-                <Button className="mx-4" disabled ={disponibilidad <= 0} variant="success" onClick={() => addItemToCart(productos)}>AGREGAR AL CARRITO</Button>
+                <Button className="mx-4" disabled ={disponibilidad <= 0} variant="success"  onClick={() => addItemToCart(products)}>AGREGAR AL CARRITO</Button>
             </ButtonGroup>
         </div>
     )

@@ -1,21 +1,12 @@
 import React from 'react'
-import { CartContext } from '../../context/GlobalStateContext copy'
 
 
-
-
-
-
-
-export const ItemCart = (item) => {ç
-    const {deleteItemToCart, addItemToCart} = useContext(CartContext);
-    const {id} = item;
-
-
-
-
+export const ItemCart = ({item}) => {
+  console.log(item.name)
   return (
-    <div>ItemCart</div>
-    
+    <div>{item.name}</div>
   )
 }
+
+
+export default ItemCart

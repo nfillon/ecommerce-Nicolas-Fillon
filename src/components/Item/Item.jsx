@@ -13,7 +13,7 @@ function Item({id, title, description, image, price}) {
   return (
       <Card  className="p-2, text-center, xs-card, md-card"
         style={{ 
-          width: "25%",
+          width: "50%",
           height: "75%",
           padding: "15px",
           borderRadius: "20px",
