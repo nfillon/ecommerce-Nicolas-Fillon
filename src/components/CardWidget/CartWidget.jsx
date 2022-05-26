@@ -47,7 +47,8 @@ export const CartWidget = () => {
                 style={{ cursor: "pointer" }}
                 onClick={() => deleteItemToCart(prod)}/></Col>
                   </Row>
-                </Container></span>
+                </Container>
+              </span>
             ))}
             <Col md={{ span: 8, offset: 8 }} > Total ${total}</Col>
             <Link to="/cart">

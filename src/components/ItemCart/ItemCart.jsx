@@ -12,10 +12,10 @@ const ItemCart = () => {
     (previous, current) => previous + current.amount * current.price,
     0
   );
-
   return (
-    <div align="center">
-      <div >
+    <Container>
+      <Row>
+        <Col>
         <ListGroup>
           {cartItems.map((prod) => (
             <ListGroup.Item key={prod.id}>
@@ -39,20 +39,16 @@ const ItemCart = () => {
             </ListGroup.Item>
           ))}
         </ListGroup>
-      </div>
-      <div >
-        <Container>
-        <Row align="center" >
-          <span className="title">Subtotal ({cartItems.length}) items</span>
-          <span style={{ fontWeight: 700, fontSize: 20 }}>Total: $ {total}</span>
-          <Button style={{ width: "97%"}} type="button" disabled={cartItems.length === 0}>
-          Finalizar compra
-        </Button>
-
+        </Col>
+          <Col>
+              <span className="title">Subtotal ({cartItems.length}) items</span>
+              <span style={{ fontWeight: 700, fontSize: 20 }}>Total: $ {total}</span>
+              <Button style={{ width: "97%"}} type="button" disabled={cartItems.length === 0}>
+                Finalizar compra
+              </Button>
+          </Col>
         </Row>
-        </Container>
-      </div>
-    </div>
+      </Container>
   );
 };
 
