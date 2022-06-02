@@ -2,13 +2,12 @@ import React, { createContext, useEffect, useState } from "react";
 import db from '../service/firebase'
 import { getDocs, collection} from 'firebase/firestore'
 
-
-// import { data } from "../components/Data/Data.js";
-
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(() => {
+
+  //Uso el storage para guargar los productos selecionados.
+ const [cartItems, setCartItems] = useState(() => {
     try {
       const productosEnLocalStorages = localStorage.getItem("cartProducts");
       return productosEnLocalStorages
@@ -23,10 +22,9 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartProducts", JSON.stringify(cartItems));
   }, [cartItems]);
 
+
+  // Consumo Firebase
   const [products, setProducts] = useState([]);
-
-
-
   const fetchData = async() => { 
     const col = collection(db,'foodList') 
     try {
@@ -36,40 +34,14 @@ export const CartProvider = ({ children }) => {
       console.log(result);
     } catch (error) {
       console.log(error);
-      
     }
-
   }
-
-
-
-
   useEffect(() => {
-
     fetchData()
- 
-  
-
-    // const promesaProductos = doc(db,'foodList','19632')
-    // getDoc(promesaProductos).then((snapshot) => {
-    //   if(snapshot.exists()) {
-    //     setProducts([...products,{id:snapshot.id, ...snapshot.data()}])
-    //   }
-    // })
-
-    // const promesaProductos = new Promise((resolve, reject) => {
-    //   setTimeout(() => {
-    //     resolve(data);
-    //   }, 2000);
-    // });
-    // promesaProductos
-    //   .then((res) => {
-    //     setProducts(res);
-    //   })
-    //   .catch((err) => console.log(err))
-    //   .then(() => console.log(data));
   }, []);//
 
+ 
+// Modero mis carrito de compra
   const [productsLength, setProductsLength] = useState(0);
 
   useEffect(() => {
@@ -78,10 +50,9 @@ export const CartProvider = ({ children }) => {
     );
    }, [cartItems])
 
-
+// Agrego productos
   const addItemToCart = (product) => {
     const inCart = cartItems.find((item) => item.id === Number(product.id));
-
     if (inCart) {
       setCartItems(
         cartItems.map((Item) => {
@@ -94,7 +65,7 @@ export const CartProvider = ({ children }) => {
       setCartItems([...cartItems, { ...product, amount: 1 }]);
     }
   };
-
+// Quito productos
   const deleteItemToCart = (product) => {
     const inCart = cartItems.find((Item) => Item.id === Number(product.id));
     console.log(product.id);
@@ -113,9 +84,7 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-
-  value={{ cartItems, products, productsLength, addItemToCart, deleteItemToCart }}
-    >
+  value={{ cartItems, products, productsLength, addItemToCart, deleteItemToCart }}>
       {children}
     </CartContext.Provider>
   );

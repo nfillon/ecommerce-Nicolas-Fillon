@@ -14,12 +14,7 @@ function ItemDetail() {
   //Filtro la promesa del context
     const [filteredDetails] = useMemo(() => 
     products ? products.filter(detail => detail.id === Number(id)) : [null]
-    , [products, id]);
-
-
-
-  
-
+    , [products, id])
   return ( filteredDetails ?
 
     <Card className="text-center">
